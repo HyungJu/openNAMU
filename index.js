@@ -461,6 +461,12 @@ router.get('/setup', function(req, res, next) {
 			fs.writeFileSync('./setting/License.txt', licen, 'utf8');
 		});
 	}
+	var exists = fs.existsSync('./setting/Plugin.txt');
+	if(!exists) {
+		fs.open('./setting/Plugin.txt','w+', function (err,fd) {
+			fs.writeFileSync('./setting/Plugin.txt', 'false', 'utf8');
+		});
+	}
 	var exists = fs.existsSync('./setting/WikiName.txt');
 	if(!exists) {
 		fs.open('./setting/WikiName.txt','w+', function (err,fd) {

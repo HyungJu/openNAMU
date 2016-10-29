@@ -21,7 +21,7 @@ module.exports = function(req, n, ba){
   }
   return yyyy+'/' + mm+'/'+dd;
   }
-  six = plugin(six);
+  
   six = six + '\r\n';
   six = six.replace(/<[Ss][Cc][Rr][Ii][Pp][Tt]>|<\/[Ss][Cc][Rr][Ii][Pp][Tt]>/g, "");
   six = six.replace(/<(.*) [Oo][Nn](.*)="(.*)">/g, "");
@@ -338,6 +338,7 @@ module.exports = function(req, n, ba){
   six = six.replace(/\[각주\]/g, "<br>" + tou);
   six = six + tou;
   d('1: '+six)
+  six = plugin(six);
   ba(six)
   
   // Thank for 2DU, LiteHell //
